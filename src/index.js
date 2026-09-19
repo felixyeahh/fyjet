@@ -1,3 +1,4 @@
+import 'dotenv/config';
 import { createServer } from "node:http";
 import { fileURLToPath } from "url";
 import { hostname } from "node:os";
@@ -33,6 +34,15 @@ const fastify = Fastify({
 				else socket.end();
 			});
 	},
+});
+
+fastify.get("/env-config.js", (request, reply) => {
+	console.log(process.env.API_URL);
+	reply.type("application/javascript").send(
+		`window.__ENV__ = ${JSON.stringify({
+			API_URL: process.env.API_URL,
+		})};`
+	);
 });
 
 fastify.register(fastifyStatic, {

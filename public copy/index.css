@@ -24,7 +24,7 @@ body {
 	margin: 0px 16px;
 }
 
-#frame {
+#sj-frame {
 	border: none;
 	position: absolute;
 	top: 0;
@@ -96,7 +96,7 @@ footer a:hover {
 	color: rgba(253, 253, 253, 0.514);
 }
 
-#address {
+#sj-address {
 	background: none;
 	font-family: inherit;
 	padding: 0px 17px;
@@ -107,12 +107,12 @@ footer a:hover {
 	outline: none;
 	width: 350px;
 	margin-top: 5px;
-	border-radius: 100px;
+	border-radius: 50px;
 	color: #fff;
 	transition: border-radius 0.1s;
 }
 
-#address:focus {
+#sj-address:focus {
 	border: 1px solid rgba(253, 253, 253, 0.514);
 	border-radius: 6px;
 }

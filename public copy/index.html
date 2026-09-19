@@ -6,7 +6,7 @@
 			name="viewport"
 			content="width=device-width, initial-scale=1.0, shrink-to-fit=no"
 		/>
-		<title>fymath</title>
+		<title>fySearch</title>
 
 		<link rel="icon" href="./icon.png" />
 		
@@ -24,30 +24,28 @@
 
 	<body>
 		<form id="login-form" class="hidden flex-center header-center w-300px h-300px" onsubmit="">
-			<p id="login-error" style="color: #ff4444;"></p>
 			<input type="text" id="login-username" class="w-300px h-300px" placeholder="Username" />
 			<input type="password" id="login-password" class="w-300px h-300px" placeholder="Password" />
 			<button type="submit" class="w-300px h-300px">Login</button>
 		</form>
 		<div id="page" class="hidden">
 			<div title="_" class="flex-center logo-wrapper header-center">
-				<img class="logo" crossorigin="anonymous" id="bgImage" src="" alt="_" />
-				<h1 style="background: linear-gradient(to right, #6a0000, #00537c, #000080); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent;"><span style="font-size: 40px">tejwoem</span><span style="font-size: 70px">⏿</span></h1>
+				<img class="logo" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSXv9PCjl57zKWtbtAX4pVUMmi0UGOQvxzB7ibLdP4-KkiaHfxIwcIu6zU&s=10" alt="_" />
+				<h1 style="background: linear-gradient(to right, #6a0000, #00537c, #000080); -webkit-background-clip: text; -webkit-text-fill-color: transparent;"><span style="font-size: 40px">meowjet</span><span style="font-size: 70px">⏿</span></h1>
 			</div>
 
-			<form id="form" class="flex-center" onsubmit="">
+			<form id="sj-form" class="flex-center" onsubmit="">
 				<input
-					id="search"
+					id="sj-search-engine"
 					value="https://www.duckduckgo.com/search?q=%s"
 					type="hidden"
 				/>
-				<input id="address" type="text" placeholder="..." />
+				<input id="sj-address" type="text" placeholder="..." />
 			</form>
 			<div class="desc left-margin">
 				<p id="sj-error"></p>
 				<pre id="sj-error-code"></pre>
 			</div>
 		</div>
-		<footer><a style="color: white;" href="https://github.com/felixyeahh/">Source</a></footer>
 	</body>
 </html>

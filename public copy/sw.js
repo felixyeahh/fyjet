@@ -13,8 +13,8 @@ async function handleRequest(event) {
 }
 
 self.addEventListener("fetch", (event) => {
-	if (event.request.url.includes("https://api.fymeow.xyz/")) {
-		return;
-	}
-	event.respondWith(handleRequest(event));
+	// if ($checkEligibility()) {
+		console.warn("Serving request", event.request.url);
+		event.respondWith(handleRequest(event));
+	// }
 });

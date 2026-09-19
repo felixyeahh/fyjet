@@ -2,15 +2,15 @@
 /**
  * @type {HTMLFormElement}
  */
-const form = document.getElementById("form");
+const form = document.getElementById("sj-form");
 /**
  * @type {HTMLInputElement}
  */
-const address = document.getElementById("address");
+const address = document.getElementById("sj-address");
 /**
  * @type {HTMLInputElement}
  */
-const searchEngine = document.getElementById("search");
+const searchEngine = document.getElementById("sj-search-engine");
 /**
  * @type {HTMLParagraphElement}
  */
@@ -59,15 +59,7 @@ form.addEventListener("submit", async (event) => {
 	}
 	console.log("url", url);
 	const frame = scramjet.createFrame();
-	frame.frame.id = "frame";
+	frame.frame.id = "sj-frame";
 	document.body.appendChild(frame.frame);
 	frame.go(url);
 });
-
-async function onLoad() {
-	const bgImage = await fetch (`${window.__ENV__.API_URL}/meow/random/image`);
-	const bgElement = document.getElementById("bgImage");
-	bgElement.src = (await bgImage.json()).image;
-}
-
-window.addEventListener("load", onLoad);
