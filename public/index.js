@@ -14,11 +14,11 @@ const searchEngine = document.getElementById("search");
 /**
  * @type {HTMLParagraphElement}
  */
-const error = document.getElementById("sj-error");
+const error = document.getElementById("error");
 /**
  * @type {HTMLPreElement}
  */
-const errorCode = document.getElementById("sj-error-code");
+const errorCode = document.getElementById("error-code");
 
 const { ScramjetController } = $scramjetLoadController();
 
@@ -57,7 +57,6 @@ form.addEventListener("submit", async (event) => {
 			{ websocket: wispUrl },
 		]);
 	}
-	console.log("url", url);
 	const frame = scramjet.createFrame();
 	frame.frame.id = "frame";
 	document.body.appendChild(frame.frame);
@@ -65,9 +64,33 @@ form.addEventListener("submit", async (event) => {
 });
 
 async function onLoad() {
-	const bgImage = await fetch (`${window.__ENV__.API_URL}/meow/random/image`);
-	const bgElement = document.getElementById("bgImage");
-	bgElement.src = (await bgImage.json()).image;
+	const bgImageRes = await fetch (`${window.__ENV__.API_URL}/meow/random/image`);
+	const bgImage = (await bgImageRes.json()).image;
+	// const bgElement = document.getElementById("bgImage");
+	// bgElement.src = (await bgImage.json()).image;
+	const body = document.body;
+	body.style.backgroundImage = `url("${bgImage}")`;
+	body.style.backgroundSize = "cover";
+	body.style.backgroundPosition = "center";
+	body.style.backgroundRepeat = "no-repeat";
+	body.style.backgroundAttachment = "fixed";
+	document.getElementById("search").value = window.__ENV__.DEFAULT_SEARCH_ENGINE + "search?q=%s";
 }
 
 window.addEventListener("load", onLoad);
+
+window.addEventListener("pagehide", () => {
+
+  const token = document.cookie
+    .split("; ")
+    .find((cookie) => cookie.startsWith("auth="))
+    ?.split("=")[1];
+
+  if (!token) return;
+
+  const url = `${window.__ENV__.API_URL}/meow/offline`;
+  const data = JSON.stringify({ token });
+
+  navigator.sendBeacon(url, data);
+});
+
