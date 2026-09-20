@@ -37,10 +37,10 @@ const fastify = Fastify({
 });
 
 fastify.get("/env-config.js", (request, reply) => {
-	console.log(process.env.API_URL);
 	reply.type("application/javascript").send(
 		`window.__ENV__ = ${JSON.stringify({
 			API_URL: process.env.API_URL,
+			DEFAULT_SEARCH_ENGINE: process.env.DEFAULT_SEARCH_ENGINE
 		})};`
 	);
 });

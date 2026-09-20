@@ -34,12 +34,12 @@ body {
 	background-color: #111;
 }
 
-#sj-error {
+#error {
 	color: #ff6666 !important;
 	white-space: pre-wrap;
 }
 
-#sj-error-code {
+#error-code {
 	font-size: 12px;
 	color: #fff;
 	font-family: "Courier New", Courier, monospace;
@@ -97,6 +97,27 @@ footer a:hover {
 }
 
 #address {
+	background: black;
+	font-family: inherit;
+	padding: 0px 17px;
+	height: 48px;
+	width: 100vw;
+	border: 1px solid rgb(255, 255, 255, 0.2);
+	color: var(--text-color);
+	border-radius: 3px;
+	outline: none;
+	margin-top: 5px;
+	border-radius: 100px;
+	color: #fff;
+	transition: border-radius 0.1s;
+}
+
+#address:focus {
+	border: 1px solid rgba(253, 253, 253, 0.514);
+	border-radius: 6px;
+}
+
+/*#form {
 	background: none;
 	font-family: inherit;
 	padding: 0px 17px;
@@ -112,10 +133,10 @@ footer a:hover {
 	transition: border-radius 0.1s;
 }
 
-#address:focus {
+#form:focus {
 	border: 1px solid rgba(253, 253, 253, 0.514);
 	border-radius: 6px;
-}
+}*/
 
 .credit {
 	border-radius: 10px;

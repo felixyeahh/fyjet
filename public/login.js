@@ -30,7 +30,7 @@ loginForm.addEventListener("submit", async (event) => {
     });
     const json = await res.json();
     if (json.success) {
-        document.cookie = `auth=${json.token}; path=/; max-age=60*60*24*7; SameSite=Lax`;
+        document.cookie = `auth=${json.token}; path=/; max-age=${60*60*24*7}; SameSite=Lax`;
         loginForm.classList.add("hidden");
         mainPage.classList.remove("hidden");
     } else {

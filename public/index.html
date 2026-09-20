@@ -7,14 +7,14 @@
 			content="width=device-width, initial-scale=1.0, shrink-to-fit=no"
 		/>
 		<title>fymath</title>
-
 		<link rel="icon" href="./icon.png" />
 		
 		<script src="./scram/scramjet.all.js"></script>
 		<script src="./baremux/index.js"></script>
 		<script src="/env-config.js"></script>
 		
-		<link rel="stylesheet" href="index.css" />
+		<link rel="stylesheet" href="./styles/index.css" />
+		<link rel="stylesheet" href="./styles/login.css" />
 		<script src="./register-sw.js" defer></script>
 		<script src="./search.js" defer></script>
 		<script src="./index.js" defer></script>
@@ -23,29 +23,70 @@
 	</head>
 
 	<body>
-		<form id="login-form" class="hidden flex-center header-center w-300px h-300px" onsubmit="">
-			<p id="login-error" style="color: #ff4444;"></p>
-			<input type="text" id="login-username" class="w-300px h-300px" placeholder="Username" />
-			<input type="password" id="login-password" class="w-300px h-300px" placeholder="Password" />
-			<button type="submit" class="w-300px h-300px">Login</button>
-		</form>
-		<div id="page" class="hidden">
-			<div title="_" class="flex-center logo-wrapper header-center">
-				<img class="logo" crossorigin="anonymous" id="bgImage" src="" alt="_" />
-				<h1 style="background: linear-gradient(to right, #6a0000, #00537c, #000080); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent;"><span style="font-size: 40px">tejwoem</span><span style="font-size: 70px">⏿</span></h1>
-			</div>
+		<div class="login-container">
+            <form id="login-form" class="login-form">
+                <div class="control">
+					<p id="login-error" style="color: #ff4444;"></p>
+                    <div class="block-cube block-input">
+                        <input id="login-username" type="text" placeholder="Username"/>
+                        <div class="bg-top">
+                            <div class="bg-inner"></div>
+                        </div>
+                        <div class="bg-right">
+                            <div class="bg-inner"></div>
+                        </div>
+                        <div class="bg">
+                            <div class="bg-inner"></div>
+                        </div>
+                    </div>
 
-			<form id="form" class="flex-center" onsubmit="">
+                    <div class="block-cube block-input">
+                        <input type="password" id="login-password" placeholder="Password"/>
+                        <div class="bg-top">
+                            <div class="bg-inner"></div>
+                        </div>
+                        <div class="bg-right">
+                            <div class="bg-inner"></div>
+                        </div>
+                        <div class="bg">
+                            <div class="bg-inner"></div>
+                        </div>
+                    </div>
+
+                    <div class="block-cube block-cube-hover">
+                        <div class="bg-top">
+                            <div class="bg-inner"></div>
+                        </div>
+                        <div class="bg-right">
+                            <div class="bg-inner"></div>
+                        </div>
+                        <div class="bg">
+                            <div class="bg-inner"></div>
+                        </div>
+                        <div class="text">
+                            <input type="submit" value="Log In" class="login-btn" />
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+		<div id="page" class="hidden">
+			
+			<form id="form" class="flex-center top-0" onsubmit="">
+				<!--<h1 style="background: linear-gradient(to right, #6a0000, #00537c, #000080); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent;"><span style="font-size: 40px">tejwoem</span><span style="font-size: 70px">⏿</span></h1><br/>-->
 				<input
-					id="search"
-					value="https://www.duckduckgo.com/search?q=%s"
-					type="hidden"
+				id="search"
+				value=""
+				type="hidden"
 				/>
-				<input id="address" type="text" placeholder="..." />
+				<input id="address" type="text" placeholder="hmm" />
 			</form>
+			<div title="_" class="flex-center logo-wrapper header-center" style="display:none">
+				<img class="logo" crossorigin="anonymous" id="bgImage" src="" alt="_" />
+			</div>
 			<div class="desc left-margin">
-				<p id="sj-error"></p>
-				<pre id="sj-error-code"></pre>
+				<p id="error"></p>
+				<pre id="error-code"></pre>
 			</div>
 		</div>
 		<footer><a style="color: white;" href="https://github.com/felixyeahh/fyjet">Source</a></footer>
